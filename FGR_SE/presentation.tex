@@ -1,0 +1,150 @@
+\documentclass{beamer}
+\usepackage[italian]{babel}
+\input{header.tex}
+
+\usetheme{Madrid}
+\setbeamercovered{transparent}
+\useoutertheme{miniframes}
+
+\title[ROF \& ES]{Regola d'Oro di Fermi ed Emissione Spontanea}
+\author{Alessandro Lovo}
+
+\begin{document}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\section{Regola d'Oro di Fermi (ROF)}
+\begin{frame}
+  \frametitle{Curiosità}
+  La maggior parte del lavoro che condusse alla regola d'oro venne in realtà svolto da Paul Dirac che giunse nel 1926 ad una formula finale praticamente identica.
+  Più tardi Fermi comprese l'importanza di tale formula tanto da fornirle l'appellativo di \emph{Regola d'oro}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Formulazione}
+  Consideriamo un sistema descritto da un hamiltoniana
+
+  \begin{equation*}
+    \hat{H} = \hat{H}_0 + \hat{H}_I
+  \end{equation*}
+
+  dove $H_I$ rapresenta una piccola perturbazione.\\
+  Allora il tasso di transizione $W_{I \to F}$ tra gli autostati di $\hat{H}_0$ $\ket{I}$, $\ket{F}$ è dato da:
+
+  \begin{equation*}
+    W_{I \to F} = \frac{2\pi}{\hbar} \left| \bra{I} \hat{H}_I \ket{F} \right|^2 \delta(E_F - E_I)
+  \end{equation*}
+
+  Dove la delta di Dirac assicura la conservazione dell'energia.
+\end{frame}
+
+\section{Emissione spontanea}
+\begin{frame}
+  \frametitle{Il problema}
+  Consideriamo ora un atomo di idrogeno interagente con la radiazione elettromagnetica (e.m.):
+  \begin{equation*}
+    \hat{H} \approx \hat{H}_{matt} + \hat{H}_{rad} + \hat{H}_D = \hat{H}_0 + \hat{H}_D
+  \end{equation*}
+  L'hamiltoniana di perturbazione è l'approssimazione di dipolo dell'interazione:
+  \begin{equation*}
+    \hat{H}_D = \frac{e}{m} \hat{\mathbf{A}} \cdot \hat{\mathbf{p}}
+  \end{equation*}
+  mentre l'hamiltoniana impertubata è in prima quantizzazione per l'atomo e in seconda quantizzazione per la radiazione e.m. con autostati rispettivamente
+  \begin{gather*}
+    \hat{H}_{matt}\ket{a} = E_a \ket{a}, \quad \hat{H}_{rad}\bigotimes_{\mathbf{k}s} \ket{n_{\mathbf{k}s}} =
+    \left(\sum_{\mathbf{k}s}\hbar\omega_{k}n_{\mathbf{k}s} \right) \bigotimes_{\mathbf{k}s} \ket{n_{\mathbf{k}s}}
+  \end{gather*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Stato iniziale e finale}
+  L'emissione spontanea è la transizione tra uno stato eccitato $\ket{b}$ ad uno ad energia inferiore $\ket{a}$ con la creazione di un fotone dallo stato di vuoto del campo e.m., dunque
+  \begin{gather*}
+    \ket{I} = \ket{b}\ket{0} \quad
+    \ket{F} = \ket{a}\ket{1_{\mathbf{k}s}}
+  \end{gather*}
+  Esprmendo il potenziale vettore in approssimazione di dipolo in termini degli operatori di creazione e distruzione si può procedere ad applicare la regola d'oro di Fermi.
+  \begin{equation*}
+    \hat{\mathbf{A}} = \sum_{\mathbf{k}s} \sqrt{\frac{\hbar}{2\epsilon_0\omega_kV}} \left(\hat{a}_{\mathbf{k}s} + \hat{a}_{\mathbf{k}s}^\dagger \right) \epsilon_{\mathbf{k}s}
+  \end{equation*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{align*}
+    \bra{I} \hat{H}_I \ket{F} & =  \frac{e}{m} \bra{b}\bra{0} \sum_{\mathbf{k'}s'} \sqrt{\frac{\hbar}{2\epsilon_0\omega_{k'}V}}
+    \left(\hat{a}_{\mathbf{k'}s'} + \hat{a}_{\mathbf{k'}s'}^\dagger \right) \epsilon_{\mathbf{k'}s'} \cdot \hat{\mathbf{p}} \ket{a}\ket{1_{\mathbf{k}s}}\\
+     & = \frac{e}{m} \sqrt{\frac{\hbar}{2\epsilon_0\omega_{k}V}} \epsilon_{\mathbf{k}s} \cdot \bra{b} \hat{\mathbf{p}} \ket{a}
+  \end{align*}
+
+  \begin{align*}
+    W_{ba,\mathbf{k}s}^{spont} & :=  W_{I \to F} = \frac{2\pi}{\hbar} \left| \bra{I} \hat{H}_I \ket{F} \right|^2 \delta(E_F - E_I) \\
+    & = \frac{2\pi}{\hbar} \left(\frac{e}{m}\right)^2 \frac{\hbar}{2\epsilon_0\omega_{k}V}
+    \left| \epsilon_{\mathbf{k}s} \cdot \bra{b} \hat{\mathbf{p}} \ket{a} \right|^2 \delta(E_b - E_a - \hbar\omega_k)
+  \end{align*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Elemento di dipolo}
+  Dall'equazione di Heisenberg è possibile esprimere il momento in termini della posizione:
+  \begin{equation*}
+    \hat{\mathbf{p}} = m \frac{d \mathbf{r}}{dt} = m \frac{[\mathbf{r}, \hat{H}_{matt}]}{i\hbar}
+  \end{equation*}
+  E di conseguenza
+  \begin{equation*}
+    \bra{a} \hat{\mathbf{p}} \ket{b} = \frac{m}{i\hbar}\bra{a} \mathbf{r}\hat{H}_{matt} - \hat{H}_{matt}\mathbf{r} \ket{b}
+    = m\frac{E_b - E_a}{i\hbar} \bra{a} \mathbf{r} \ket{b}
+  \end{equation*}
+  Se ora definiamo $\omega_{ba} = \frac{E_b - E_a}{\hbar}$ e $\mathbf{d}_{ba} = \bra{a} -e\mathbf{r} \ket{b}$ possiamo scrivere
+  \begin{equation*}
+    W_{ba,\mathbf{k}s}^{spont} = \frac{\pi \omega_{ba}^2}{\epsilon_0\omega_kV} \left|\epsilon_{\mathbf{k}s} \cdot \mathbf{d}_{ba} \right|^2
+    \delta(\hbar \omega_k - \hbar \omega_{ba})
+  \end{equation*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Tasso totale di emissione spontanea}
+  Integrando su tutti i possibili stati finali per il fotone emesso si ottiene
+  \begin{align*}
+    W_{ba}^{spont} & = \sum_{\mathbf{k}s} W_{ba,\mathbf{k}s}^{spont} = \frac{V}{(2\pi)^3}\int d^3k \sum_s W_{ba,\mathbf{k}s}^{spont}\\
+    & = \frac{1}{8\pi^2\epsilon_0} \int_0^{\infty} k^2 dk \frac{\omega_{ba}^2}{\omega_k} \delta(\hbar \omega_k - \hbar \omega_{ba})
+    \int d\Omega \sum_s \left|\epsilon_{\mathbf{k}s} \cdot \mathbf{d}_{ba} \right|^2
+  \end{align*}
+  % \begin{align*}
+  %   W_{ba}^{spont} & = \sum_{\mathbf{k}s} W_{ba,\mathbf{k}s}^{spont} = \frac{V}{(2\pi)^3}\int d^3k \sum_s W_{ba,\mathbf{k}s}^{spont}\\
+  %   & = \frac{1}{8\pi^2\epsilon_0} \int_0^{\infty} k^2 dk \int d\Omega \frac{\omega_{ba}}{ck}
+  %   \frac{\delta(k - \frac[f]{\omega_{ba}}{c})}{\hbar c} \sum_s \left|\epsilon_{\mathbf{k}s} \cdot \mathbf{d}_{ba} \right|^2 \\
+  %   & = \frac{\omega_{ba}^3}{8\pi^2\epsilon_0\hbar c^3} \int_0^{\pi} \sin\theta d\theta \int_0^{2\pi} d\varphi \sum_s \left|\epsilon_{\mathbf{k}s} \cdot \mathbf{d}_{ba} \right|^2
+  % \end{align*}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Integrazione angolare}
+  Essendo i due versori di polarizzazione $\epsilon_{\mathbf{k}s}$ ortogonali tra loro e ortogonali a $\mathbf{k}$, $\left\{\mathbf{n}=\frac[f]{\mathbf{k}}{k}, \epsilon_{\mathbf{k}1}, \epsilon_{\mathbf{k}2}\right\}$ formano una base ortogonale. Scegliendo $\mathbf{d}_{ba}$ come asse per le coordinate polari dell'integrazione si ottiene
+  \begin{align*}
+    \sum_s \left|\epsilon_{\mathbf{k}s} \cdot \mathbf{d}_{ba} \right|^2 = \left| \mathbf{d}_{ba} \right|^2 - \left|\mathbf{n}\cdot \mathbf{d}_{ba}\right|^2
+    =  \left| \mathbf{d}_{ba} \right|^2 (1 - \cos^2\theta)
+  \end{align*}
+  da cui
+  \begin{equation*}
+    \int d\Omega \sum_s \left|\epsilon_{\mathbf{k}s} \cdot \mathbf{d}_{ba} \right|^2
+    = \int_0^{\pi} \sin\theta d\theta \int_0^{2\pi} d\varphi \left| \mathbf{d}_{ba} \right|^2 \sin^2\theta
+    = \frac{8\pi}{3} \left| \mathbf{d}_{ba} \right|^2
+  \end{equation*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Integrazione radiale}
+  Considerando che $\omega_k = ck$ è possibile giungere alla formula finale:
+  \begin{align*}
+    W_{ba}^{spont} & = \frac{1}{3\pi\epsilon_0} \left| \mathbf{d}_{ba} \right|^2 \int_0^{\infty} k^2 dk \frac{\omega_{ba}}{ck} \frac{\delta(k - \frac[f]{\omega_{ba}}{c})}{\hbar c}\\
+    & = \frac{\omega_{ba}^3}{3\pi\epsilon_0\hbar c^3} \left| \mathbf{d}_{ba} \right|^2
+  \end{align*}
+\end{frame}
+
+
+\end{document}

@@ -1,0 +1,109 @@
+\documentclass{beamer}
+\usepackage[italian]{babel}
+\input{header.tex}
+
+\usetheme{Madrid}
+\setbeamercovered{transparent}
+\useoutertheme{miniframes}
+
+\title[Stati coerenti di materia]{Stati coerenti per bosoni e fermioni}
+\author{Alessandro Lovo}
+
+\begin{document}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\section{Seconda quantizzazione della materia}
+\begin{frame}
+  \frametitle{Luce e materia}
+  Consideriamo l'hamiltoniana in prima quantizzazione $\hat{H}_{cl} = -\frac{\hbar^2}{2m}\nabla^2 + U(\mathbf{r})$ con autostati
+  \begin{equation*}
+    \hat{H}_{cl} \ket{\phi_{\alpha}} = E_{\alpha} \ket{\phi_{\alpha}}
+  \end{equation*}
+  Una generica funzione d'onda può dunque essere espressa come $\ket{\psi} = \sum_{\alpha} c_{\alpha} \ket{\phi_{\alpha}}$ e si può dunque scrivere l'energia associata come
+  \begin{equation*}
+    H = \bra{\psi} \hat{H}_{cl} \ket{\psi} = \sum_{\alpha} \frac{E_{\alpha}}{2} \left(c_{\alpha}c_{\alpha}^* + c_{\alpha}^*c_{\alpha} \right)
+  \end{equation*}
+  Con un procedimento simile a quello per la seconda quantizzazione del campo elettromagnetico è possibile promuovere ad operatori $c_{\alpha}, c_\alpha^*$ e di conseguenza $H, \psi$.
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Operatori bosonici e fermionici}
+  \begin{gather*}
+    \hat{\psi} = \sum_{\alpha} \hat{c}_{\alpha} \phi_{\alpha}\\
+    \hat{N}_{\alpha} = \hat{c}_{\alpha}^\dagger \hat{c}_\alpha \\
+    \hat{H} = \sum_{\alpha} E_{\alpha} \left( \hat{N}_{\alpha} + \frac{1}{2} \right) \approx \sum_{\alpha} E_{\alpha} \hat{N}_{\alpha}
+  \end{gather*}
+  Nel caso di bosoni
+  \begin{gather*}
+    [\hat{c}_{\alpha},\hat{c}_{\beta}^\dagger] = \delta_{\alpha\beta}, \,
+    [\hat{c}_{\alpha},\hat{c}_{\beta}] = [\hat{c}_{\alpha}^\dagger,\hat{c}_{\beta}^\dagger] = 0, \,
+    \sigma(\hat{N}_\alpha) = \mathbb{N}
+  \end{gather*}
+  mentre nel caso di fermioni
+  \begin{gather*}
+    \{\hat{c}_{\alpha},\hat{c}_{\beta}^\dagger\} = \delta_{\alpha\beta}, \,
+    \{\hat{c}_{\alpha},\hat{c}_{\beta}\} = \{\hat{c}_{\alpha}^\dagger,\hat{c}_{\beta}^\dagger\} = 0, \,
+    \sigma(\hat{N}_\alpha) = \{0,1\}
+  \end{gather*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Stati numero e stati coerenti}
+  Come nel caso della luce gli operatori $\hat{c}_{\alpha},\hat{c}_{\alpha}^\dagger$ rispettivamente distruggono e creano una particella nello stato $\phi_\alpha$ agendo sullo spazio di Fock in rappresentazione di numero:
+  \begin{equation*}
+    \hat{N}_\alpha \ket{\dots n_\alpha \dots} = n_\alpha \ket{\dots n_\alpha \dots}
+  \end{equation*}
+  Viene dunque spontaneo chiedersi se anche per la materia sia possibile avere degli stati coerenti, ossia autostati dell'operatore di annichilazione in cui il numero di particelle non sia fissato
+  \begin{equation*}
+    \hat{c}_\alpha \ket{c_\alpha} = c_\alpha \ket{c_\alpha}
+  \end{equation*}
+  % \begin{gather*}
+  %   \hat{c}_{\alpha} \ket{\dots n_\alpha \dots} = \sqrt{n_\alpha} \ket{\dots n_\alpha - 1 \dots} \\
+  %   \hat{c}_{\alpha}^\dagger \ket{\dots n_\alpha \dots} = \sqrt{n_\alpha + 1} \ket{\dots n_\alpha + 1 \dots}
+  % \end{gather*}
+\end{frame}
+
+\section{Stati coerenti}
+\begin{frame}
+  \frametitle{Bosoni}
+  Nel caso di particelle bosoniche non c'è limite al numero di particelle che occupino un singolo stato e infatti con la condensazione di Bose-Einstein occupano tutte lo stato ad energia inferiore $\phi_0$. Inoltre poichè le regole di commutazione sono le stesse della luce è immediato esprimere lo stato coerente come
+  \begin{equation*}
+    \ket{c}_\alpha = e^{-\frac[f]{|c_\alpha|^2}{2}} \sum_{n_\alpha = 0}^\infty \frac{c_\alpha}{\sqrt{n_\alpha!}} \ket{n_\alpha}
+  \end{equation*}
+  dove $\overbar{N} = |c_\alpha|^2$ rappresenta il numero medio di bosoni nello stato $\phi_\alpha$.\\
+  Analogamente al caso della luce la fluttuazione di $\hat{\psi}$ (che corrisponde al campo elettrico) calcolata sullo stato coerente è la stessa di quella sullo stato di vuoto.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fermioni}
+  Nel caso di fermioni la situazione è più complicata poiché ogni stato $\phi_\alpha$ può contenere al massimo una particella. Questo altro non è che il principio di esclusione di Pauli che in seconda quantizzazione può essere formulato come $(\hat{c}_\alpha^\dagger)^2 \ket{0} = 0$.\\
+  Ciononostante è comunque possibile definire lo stato coerente come autosatato dell'operatore di annichilazione
+  \begin{gather*}
+    \hat{c}_\alpha \ket{c_\alpha} = c_\alpha \ket{c_\alpha}, \,
+    \bra{c_\alpha} \hat{c}_\alpha^\dagger  = \overbar{c}_\alpha \bra{c_\alpha}
+  \end{gather*}
+  Tuttavia a causa delle regole di anticommutazione $c_\alpha,\overbar{c}_\alpha$ non sono numeri complessi bensì numeri di Grassmann.
+  \begin{gather*}
+    c_\alpha^2 = \overbar{c}_\alpha^2 = 0, \, c_\alpha\overbar{c}_\alpha + \overbar{c}_\alpha c_\alpha = 1
+  \end{gather*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Campi 'classici'}
+  Gli stati coerenti possono essere usati come ponte per ottenere l'analogo 'classico' del campo di materia $\hat{\psi}$:
+  \begin{gather*}
+    \hat{\psi} = \sum_\alpha \phi_\alpha \hat{c}_\alpha \, \to \, \psi = \sum_\alpha \phi_\alpha c_\alpha\\
+    \hat{\psi}\ket{\psi} = \psi\ket{\psi}\\
+    \ket{\psi} = \bigotimes_\alpha \ket{c_\alpha}, \, \hat{c}_\alpha \ket{c_\alpha} = c_\alpha \ket{c_\alpha}
+  \end{gather*}
+  Nel caso di bosoni $\psi$ sarà un campo complesso, mentre nel caso di fermioni un campo di Grassmann.
+\end{frame}
+
+
+
+
+\end{document}

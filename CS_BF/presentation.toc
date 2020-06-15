@@ -1,0 +1,4 @@
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\beamer@sectionintoc {1}{Seconda quantizzazione della materia}{2}{0}{1}
+\beamer@sectionintoc {2}{Stati coerenti}{5}{0}{2}

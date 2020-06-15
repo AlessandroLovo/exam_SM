@@ -1,0 +1,4 @@
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\beamer@sectionintoc {1}{Regola d'Oro di Fermi (ROF)}{2}{0}{1}
+\beamer@sectionintoc {2}{Emissione spontanea}{4}{0}{2}
